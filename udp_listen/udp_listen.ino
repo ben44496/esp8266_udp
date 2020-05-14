@@ -13,7 +13,7 @@ char  replyPacket[] = "Hi there! Got the message :-)";  // a reply string to sen
 void setup()
 {
   Serial.begin(115200);
-  Serial.println("beyop");
+  Serial.println();
 
   Serial.printf("Connecting to %s ", ssid);
   WiFi.begin(ssid, password);
@@ -44,8 +44,9 @@ void loop()
     Serial.printf("UDP packet contents: %s\n", incomingPacket);
 
     // send back a reply, to the IP address and port we got the packet from
-    Udp.beginPacket(Udp.remoteIP(), Udp.remotePort());
+    Udp.beginPacket(Udp.remoteIP(), /*Udp.remotePort()*/50053);
     Udp.write(replyPacket);
     Udp.endPacket();
+//    yield();
   }
 }
