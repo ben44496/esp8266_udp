@@ -31,6 +31,12 @@ void setup()
 
 void loop()
 {
+  Serial.println(WiFi.RSSI());
+  receiveMessage(1000);
+  
+}
+
+void receiveMessage(int delaySeconds){
   int packetSize = Udp.parsePacket();
   if (packetSize)
   {
@@ -42,11 +48,6 @@ void loop()
       incomingPacket[len] = 0;
     }
     Serial.printf("UDP packet contents: %s\n", incomingPacket);
-
-    // send back a reply, to the IP address and port we got the packet from
-    Udp.beginPacket(Udp.remoteIP(), /*Udp.remotePort()*/50053);
-    Udp.write(replyPacket);
-    Udp.endPacket();
-//    yield();
   }
+  delay(delaySeconds);
 }
