@@ -45,8 +45,12 @@ get_Host_name_IP(4210) # Set ipaddress and ssid; attach to port 4210
 
 # Create a UDP Socket
 UDPClientSocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-#UDPClientSocket.bind(("192.168.86.24",4210))
-UDPClientSocket.connect(("192.168.86.254",4210))
+#UDPClientSocket.connect(("10.1.10.255",4210))
+#UDPClientSocket.bind((socket.gethostbyname(socket.gethostname()),4210))
+UDPClientSocket.bind(("",4210))
+
+
+#UDPClientSocket.connect((clientIP,4210))
 #serverip = UDPClientSocket.getsockname()[0]
 #serverport = UDPClientSocket.getsockname()[1]
 #gateway = gw[2]

@@ -4,11 +4,13 @@ import os
 
 print("Broadcast Raspi")
 
-serverAddressPort = ("192.168.86.27", 4210)
+serverAddressPort = ("10.1.10.255", 4210)
 bufferSize = 1024
 UDPServerSocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # Set up new Socket
+UDPServerSocket.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST,1)
+
 gw = os.popen("ip -4 route").read().split() # Run cmd to find IP Addresses
-UDPServerSocket.connect(("192.168.86.27",4210))
+#UDPServerSocket.connect(serverAddressPort)
 myIP = socket.gethostbyname(socket.gethostname())#UDPServerSocket.getsockname()[0] # Get ip address of current device
 myName = socket.gethostname() # Get hostname of device
 gateway = gw[8] # gateway ip address
