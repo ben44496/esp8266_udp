@@ -1,8 +1,11 @@
 #include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
 
-const char* ssid = "NETGEAR_11N";
-const char* password = "sharedsecret";
+//const char* ssid = "NETGEAR_11N";
+//const char* password = "sharedsecret";
+const char* ssid = "DronePi";
+const char* password = "dronegod";
+
 
 WiFiUDP Udp;
 unsigned int localUdpPort = 4210;  // local port to listen on
@@ -32,7 +35,7 @@ void setup()
 void loop()
 {
   Serial.println(WiFi.RSSI());
-  receiveMessage(1000);
+  receiveMessage(100);
   
 }
 
@@ -41,7 +44,7 @@ void receiveMessage(int delaySeconds){
   if (packetSize)
   {
     // receive incoming UDP packets
-    Serial.printf("Received %d bytes from %s, port %d\n", packetSize, Udp.remoteIP().toString().c_str(), Udp.remotePort());
+    //Serial.printf("Received %d bytes from %s, port %d\n", packetSize, Udp.remoteIP().toString().c_str(), Udp.remotePort());
     int len = Udp.read(incomingPacket, 255);
     if (len > 0)
     {
