@@ -4,7 +4,7 @@ import os
 
 print("Broadcast Raspi")
 
-serverAddressPort = ("10.1.10.14", 4210)
+serverAddressPort = ("10.1.10.255", 4210)
 bufferSize = 1024
 UDPServerSocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # Set up new Socket
 UDPServerSocket.setsockopt(socket.SOL_SOCKET,socket.SO_BROADCAST,1)
