@@ -1,8 +1,11 @@
 #include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
 
-const char* ssid = "NETGEAR_11N";
-const char* password = "sharedsecret";
+//const char* ssid = "NETGEAR_11N";
+//const char* password = "sharedsecret";
+const char* ssid = "DronePi";
+const char* password = "dronegod";
+
 
 WiFiUDP Udp;
 unsigned int localUdpPort = 4210;  // local port to listen on
@@ -13,7 +16,7 @@ char  replyPacket[] = "Hi there! Got the message :-)";  // a reply string to sen
 void setup()
 {
   Serial.begin(115200);
-  Serial.println("beyop");
+  Serial.println();
 
   Serial.printf("Connecting to %s ", ssid);
   WiFi.begin(ssid, password);
@@ -31,21 +34,23 @@ void setup()
 
 void loop()
 {
+  Serial.println(WiFi.RSSI());
+  receiveMessage(100);
+  
+}
+
+void receiveMessage(int delaySeconds){
   int packetSize = Udp.parsePacket();
   if (packetSize)
   {
     // receive incoming UDP packets
-    Serial.printf("Received %d bytes from %s, port %d\n", packetSize, Udp.remoteIP().toString().c_str(), Udp.remotePort());
+    //Serial.printf("Received %d bytes from %s, port %d\n", packetSize, Udp.remoteIP().toString().c_str(), Udp.remotePort());
     int len = Udp.read(incomingPacket, 255);
     if (len > 0)
     {
       incomingPacket[len] = 0;
     }
     Serial.printf("UDP packet contents: %s\n", incomingPacket);
-
-    // send back a reply, to the IP address and port we got the packet from
-    Udp.beginPacket(Udp.remoteIP(), Udp.remotePort());
-    Udp.write(replyPacket);
-    Udp.endPacket();
   }
+  delay(delaySeconds);
 }
