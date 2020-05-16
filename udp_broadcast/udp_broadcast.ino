@@ -1,8 +1,10 @@
 #include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
 
-const char* ssid = "NETGEAR_11N";
-const char* password = "sharedsecret";
+//const char* ssid = "NETGEAR_11N";
+//const char* password = "sharedsecret";
+const char* ssid = "DronePi";
+const char* password = "dronegod";
 
 WiFiUDP udp;
 unsigned int listenPort = 4210;  // local port to listen on
@@ -62,4 +64,3 @@ void sendMessage(char* message, IPAddress ip, int port){
   udp.endPacket();
   yield();
 }
-
