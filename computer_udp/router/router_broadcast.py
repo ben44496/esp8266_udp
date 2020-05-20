@@ -5,7 +5,7 @@ import os
 print("Broadcast Raspi")
 
 MESSAGE = b"I love zero two"
-serverAddressPort = ("10.1.10.255", 4210) # Send to broadcast IP at port Port
+serverAddressPort = ("192.168.86.255", 5210) # Send to broadcast IP at port Port
 bufferSize = 1024
 UDPServerSocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # Set up new Socket
 UDPServerSocket.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST,1) # Set setting for permissions to broadcast to broadcast IP

@@ -48,7 +48,6 @@ def set_myAddress_Default(port):
 
 # Receive Messages from Server
 def receive_Message(UDPSocket):
-    """UDPSocket.bind(set_myAddress(port))"""
     bytesAddressPair = UDPSocket.recvfrom(bufferSize)
     s = bytesAddressPair[0]
     ip = bytesAddressPair[1]
