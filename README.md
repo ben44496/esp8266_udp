@@ -1,5 +1,5 @@
 # esp8266_udp
-###### This is a library intended for UDP communication between ESP8266, RasPi, and Linux/Mac
+###### **This is a library intended for UDP communication between ESP8266, RasPi, and Linux/Mac**
 
 This library holds code for communication between different nodes on a UDP network. Please see wikipedia and youtube for information on UDP packets if you are new. 
 
