@@ -22,15 +22,15 @@ WiFi networks other than basic password (as opposed to Bluetooth authentication)
 drone swarm. 
 
 ## Using the library
-For computer related code (RasPi, Linux/Mac), please refer to the computer_udp folder. 
+For computer related code (RasPi, Linux/Mac), please refer to the *computer_udp* folder. 
 To run files, open up terminal on your OS and type
 ```
 python3 [file_name].py
 ```
-where file_name is the name of the file you want to run. For example, you would change file_name to raspi_broadcast if you wanted to run it.
+where file_name is the name of the file you want to run. For example, you would change ***file_name*** to ***raspi_broadcast*** if you wanted to run it.
 This will begin to run the code. **Please make sure that it is listening on the correct port and network (SSID/Password), changing it in the code at the variable declarations.**
 
-For ESP9266 cpp Arduino code, please refer to the esp9266_udp folder
+For ESP9266 cpp Arduino code, please refer to the *esp9266_udp* folder
 Connect your ESP8266, open up the file in Arduino IDE, and flash the program. If you are connected to computer, you can also open up Serial Monitor to see the print statements. 
 Once you have flashed the ESP8266, the next time you connect to a power supply it will automatically run the program. **Please make sure that it is listening on the correct port and network (SSID/Password), changing it in the code at the variable declarations.**
 ## Dependencies
